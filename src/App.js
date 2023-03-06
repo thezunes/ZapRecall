@@ -1,8 +1,8 @@
 import logo from "./assets/logo.png"
-import seta_play from "./assets/seta_play.png"
 import styled from 'styled-components';
 import mock from "./mock.js"
-
+import Contador from "./Contador.js"
+import Cards from "./Cards.js"
 
 
 export default function App() {
@@ -23,35 +23,10 @@ console.log("chegou")
       <Logo src={logo} alt="logo" onClick={teste} />
       <h1> ZappRecall</h1>
       </Titulo>  
-      <Card>
-        <h1> Pergunta 1 </h1>
-        <img src={seta_play} alt="play" />
+      <Cards/>
+      <Contador/>
 
-      </Card>
-      <Card>
-        <h1> Pergunta 2 </h1>
-        <img src={seta_play} alt="play" />
-
-      </Card>
-      <Card>
-        <h1> Pergunta 3 </h1>
-        <img src={seta_play} alt="play" />
-
-      </Card>
-      <Card>
-        <h1> Pergunta 4 </h1>
-        <img src={seta_play} alt="play" />
-
-      </Card>
-
-
-    <Footer>
-      
-     <h1> 0/4 concluídos </h1> 
-      
-       </Footer>
-
-    </Container>
+      </Container>
   );
 }
 
@@ -92,61 +67,6 @@ const Titulo=styled.div `
   }
  
 `
-
-
-const Card = styled.div `
-
-
-
-display: flex;
-align-items: center;
-justify-content: space-between;
-background-color: #ffffff;
-width: 300px;
-height: 65px;
-background: #FFFFFF;
-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-border-radius: 5px;
-margin-top: 26px;
-
-
-h1 {
-  height: 19px;
-  font-family: 'Recursive';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #333333;
-  margin-left: 16px;
-}
-
-img {
-  
-  padding-right: 20px;
-
-}
-
-
-`
-
-const Footer = styled.div `
-
-display: flex;
-width: 375px;
-height: 70px;
-background-color: white;
-position: fixed;
-bottom: 0;
-color: black;
-font-family: 'Recursive';
-font-style: normal;
-font-size: 18px;
-align-items: center;
-justify-content: center;
-
-`
-
 
 const Logo = styled.img `
 
