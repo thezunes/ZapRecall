@@ -51,7 +51,8 @@ const Titulo=styled.div `
   height: 100px;
   align-items: center;
   justify-content: center;
-  margin-top: 26px;
+  margin-top: 30px;
+
   
   h1{ 
 

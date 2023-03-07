@@ -4,21 +4,25 @@ import seta_virar from "./assets/seta_virar.png"
 import React, { useState } from "react";
 import Contador from "./Contador.js"
 import contar from "./Contador.js"
- 
-let contabilizar = 0;
+
 
 export default function Cards(props) {
 
+// let contabilizar = 0;
 const [inicio, setInicio] = useState(false)
 const [pergunta, setPergunta] = useState(false)
 const [respondido, setRespondido] = useState(true)
 const totalPerguntas = props.total;
- 
+const [cont, setCont] = useState(0)
+let cor = "";
+const vermelho = "#FF3030";
+const verde = "#2FBE34"
+const laranja = "#FF922E"
+
 function perguntar(){
 
 if(respondido){
 setInicio(true)
-setRespondido(false)
 }
 
 }
@@ -29,12 +33,15 @@ setPergunta(true)
 
 }
 
-function fim(){
+function fim(cor){
 
 setInicio(false)
-contabilizar = contabilizar + 1;
-alert (contabilizar)
-contar()
+// contabilizar = contabilizar + 1;
+let newCont = cont + 1
+setCont(newCont)
+console.log(newCont)
+setRespondido(false)
+console.log(cor)
  
 }
 
@@ -46,7 +53,7 @@ return (
 
 
   {!inicio ?
-    <Card>
+    <Card respondido = {respondido}>
     <h1 data-test="flashcard-text"> Pergunta {props.numeroPergunta} </h1>
     <img data-test="play-btn" onClick={perguntar} src={seta_play} alt="play" />
     </Card> : (!pergunta ? <Question>     
@@ -57,9 +64,9 @@ return (
     <h1 data-test="flashcard-text">{props.card.answer}</h1>
     <Botoes>
 
-    <Botao1  onClick={fim}> Não lembrei </Botao1>
-    <Botao2 onClick={fim}> Quase não lembrei </Botao2>
-    <Botao3 onClick={fim}> Zap! </Botao3>
+    <Botao1 cor = {vermelho} onClick={() => fim(cor)}> Não lembrei </Botao1>
+    <Botao2 cor = {laranja} onClick={() => fim(cor)}> Quase não lembrei </Botao2>
+    <Botao3 cor = {verde} id="botaoVerde" onClick={() => fim(cor)}> Zap! </Botao3>
     
     </Botoes>  
     </Question>) 
@@ -67,7 +74,7 @@ return (
 
 </Deck>
 
-<Contador  totalPerguntas = {totalPerguntas} contabilizar = {contabilizar}/>
+<Contador setCont = {setCont} cont = {cont} totalPerguntas = {totalPerguntas}  />
  </>
 
 );
@@ -77,8 +84,6 @@ return (
 const Deck = styled.div `
 
 display:flex; 
-justify-content:
-
 
 `
 
@@ -105,6 +110,8 @@ h1 {
   line-height: 19px;
   color: #333333;
   margin-left: 16px;
+  text-decoration: ${props => !props.respondido ? "line-through" : "none"};
+
 }
 
 img {
@@ -168,14 +175,6 @@ justify-content: space-between;
 margin-left: 16px;
 margin-right: 16px;
 margin-bottom: 8px;
-
-
-button {
-   
-  }
-
-
-}
 
 
 `

@@ -4,25 +4,14 @@ import React, { useState } from "react";
 
 export default function Contador(props){
 
-const [cont, setCont] = useState(props.contabilizar)
-   
-function contar()
-
-{
-
-setCont(props.contabilizar)
-
-}
 
 return (
 
 <Footer data-test="footer">
-      
-    <h1> {cont}/{props.totalPerguntas} Conclúidas</h1> 
-         
+    
+    <h1> {props.cont}/{props.totalPerguntas} Conclúidas</h1> 
 </Footer>
  
-
 )
 
 }
