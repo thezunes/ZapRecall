@@ -1,19 +1,21 @@
 import styled from 'styled-components';
+import React, { useState } from "react";
 
 
 export default function Contador(){
+
+const [cont, setCont] = useState(0)
 
 return (
 
 <Footer>
       
-    <h1> 0/4 concluídos </h1> 
+    <h1> {cont}/8 concluídos </h1> 
        
 </Footer>
  
 
 )
-
 
 }
 

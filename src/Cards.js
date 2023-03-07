@@ -2,36 +2,32 @@ import styled from 'styled-components';
 import seta_play from "./assets/seta_play.png"
 
 
-export default function Cards() {
+
+export default function Cards(props) {
+
+
+// const cards = cards.map((c)=>{ <p>`${c.question}</p>})
+
 
 return (
-<>
+
+
+
+<Deck>
     <Card>
-    <h1> Pergunta 1 </h1>
+    <h1> Pergunta {props.numeroPergunta} </h1>
     <img src={seta_play} alt="play" />
-
     </Card>
-    <Card>
-    <h1> Pergunta 2 </h1>
-    <img src={seta_play} alt="play" />
-
-    </Card>
-    <Card>
-    <h1> Pergunta 3 </h1>
-    <img src={seta_play} alt="play" />
-
-    </Card>
-    <Card>
-    <h1> Pergunta 4 </h1>
-    <img src={seta_play} alt="play" />
-
-    </Card>
-
-    </>
+</Deck>
 )
 
-
 }
+
+const Deck = styled.div `
+
+// overflow: auto;
+
+`
 
 const Card = styled.div `
 
@@ -63,5 +59,15 @@ img {
   padding-right: 20px;
 
 }
+
+`
+
+const Pergunta = styled.div `
+
+display: flex;
+position: absolute;
+width: 299px;
+height: 131px;
+background-color: #ffffff;
 
 `
