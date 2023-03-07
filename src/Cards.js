@@ -8,17 +8,19 @@ import contador from "./Contador.js"
 
 export default function Cards(props, ) {
 
-  let contabilizar = 0;
 const [inicio, setInicio] = useState(false)
 const [pergunta, setPergunta] = useState(false)
 const [mostrarResposta, setMostrarResposta] = useState(false)
 const [respondido, setRespondido] = useState(true)
+let contabilizar = 0;
 
 function perguntar(){
 
-
+if(respondido){
 setInicio(true)
 console.log("ta chegando na função")
+setRespondido(false)
+}
 
 }
 
@@ -31,9 +33,8 @@ setPergunta(true)
 function fim(){
 
 setInicio(false)
-contabilizar = contabilizar + 1;
-contador();
-alert(contabilizar);
+
+
 
 
 }
@@ -57,9 +58,9 @@ return (
     <h1>{props.card.answer}</h1>
     <Botoes>
 
-    <button onClick={fim}> Não lembrei </button>
-    <button onClick={fim}> Quase não lembrei </button>
-    <button onClick={fim}> Zap! </button>
+    <button className="vermelho" onClick={fim}> Não lembrei </button>
+    <button className="amarelo" onClick={fim}> Quase não lembrei </button>
+    <button className="azul" onClick={fim}> Zap! </button>
 
     </Botoes>  
     </Question>) 
@@ -184,8 +185,22 @@ button {
   line-height: 22px;
   color: white;
   width: 86px;
-  background: blue;
   font-size: 12px;
+
+  .button:active {
+
+    .vermelho {
+      background: red;
+    }
+    .amarelo {
+      background: yellow;
+
+    }
+    .azul {
+      background: blue;
+    }
+  
+  }
 
 
 }
