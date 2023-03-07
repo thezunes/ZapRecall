@@ -3,26 +3,21 @@ import seta_play from "./assets/seta_play.png"
 import seta_virar from "./assets/seta_virar.png"
 import React, { useState } from "react";
 import Contador from "./Contador.js"
-import contador from "./Contador.js"
+import contar from "./Contador.js"
+ 
+let contabilizar = 0;
 
-
-export default function Cards(props, ) {
+export default function Cards(props) {
 
 const [inicio, setInicio] = useState(false)
 const [pergunta, setPergunta] = useState(false)
-const [mostrarResposta, setMostrarResposta] = useState(false)
 const [respondido, setRespondido] = useState(true)
-let contabilizar = 0;
-
-// const amarelo =  }
-// const vermelho = #FF3030
-// const verde = #2FBE34
-
+const totalPerguntas = props.total;
+ 
 function perguntar(){
 
 if(respondido){
 setInicio(true)
-console.log("ta chegando na função")
 setRespondido(false)
 }
 
@@ -37,10 +32,10 @@ setPergunta(true)
 function fim(){
 
 setInicio(false)
-
-
-
-
+contabilizar = contabilizar + 1;
+alert (contabilizar)
+contar()
+ 
 }
 
 return (
@@ -52,17 +47,17 @@ return (
 
   {!inicio ?
     <Card>
-    <h1> Pergunta {props.numeroPergunta} </h1>
-    <img onClick={perguntar} src={seta_play} alt="play" />
+    <h1 data-test="flashcard-text"> Pergunta {props.numeroPergunta} </h1>
+    <img data-test="play-btn" onClick={perguntar} src={seta_play} alt="play" />
     </Card> : (!pergunta ? <Question>     
-    <h1>{props.card.question}</h1>
-    <img onClick={resposta} src={seta_virar}/>
+    <h1 data-test="flashcard-text">{props.card.question}</h1>
+    <img data-test="turn-btn" alt="seta de virar" onClick={resposta} src={seta_virar}/>
     </Question> : <Question> 
 
-    <h1>{props.card.answer}</h1>
+    <h1 data-test="flashcard-text">{props.card.answer}</h1>
     <Botoes>
 
-    <Botao1 onClick={fim}> Não lembrei </Botao1>
+    <Botao1  onClick={fim}> Não lembrei </Botao1>
     <Botao2 onClick={fim}> Quase não lembrei </Botao2>
     <Botao3 onClick={fim}> Zap! </Botao3>
     
@@ -72,9 +67,8 @@ return (
 
 </Deck>
 
-<Contador contabilizar = {contabilizar}/>
-
-</>
+<Contador  totalPerguntas = {totalPerguntas} contabilizar = {contabilizar}/>
+ </>
 
 );
 

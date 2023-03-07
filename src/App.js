@@ -16,6 +16,8 @@ const cards = [
 
 export default function App() {
 
+  let total = cards.length;
+
   return (
     <Container>
       <Titulo>
@@ -24,7 +26,7 @@ export default function App() {
       </Titulo>  
       
       {cards.map((card, index) => <Cards 
-      card = {card} numeroPergunta = {index+1} key={index}/>)}
+      total = {total} card = {card} numeroPergunta = {index+1} key={index}/>)}
     
       </Container>
   );

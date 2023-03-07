@@ -2,23 +2,24 @@ import styled from 'styled-components';
 import React, { useState } from "react";
 
 
-export default function Contador(contabilizar){
+export default function Contador(props){
 
-const [cont, setCont] = useState(0)
+const [cont, setCont] = useState(props.contabilizar)
+   
+function contar()
 
-function contador(){
+{
 
-setCont(contabilizar)
-
+setCont(props.contabilizar)
 
 }
 
 return (
 
-<Footer>
+<Footer data-test="footer">
       
-    <h1> {cont}/8 concluídos </h1> 
-       
+    <h1> {cont}/{props.totalPerguntas} Conclúidas</h1> 
+         
 </Footer>
  
 
@@ -43,3 +44,5 @@ justify-content: center;
 margin-top: 50px;
 
 `
+
+ 
