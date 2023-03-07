@@ -39,9 +39,10 @@ flex-direction: column;
 align-items: center;
 background-color: #FB6B6B;
 width: 450px;
-height: 667px;
+height: 100%;
 overflow : auto;
-
+padding-bottom: 100px;
+ 
 `;
 
 const Titulo=styled.div `
