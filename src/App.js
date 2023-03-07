@@ -1,6 +1,5 @@
 import logo from "./assets/logo.png"
 import styled from 'styled-components';
-import Contador from "./Contador.js"
 import Cards from "./Cards.js"
 // import cards from "./Cards.js"
 
@@ -24,11 +23,9 @@ export default function App() {
       <h1> ZappRecall</h1>
       </Titulo>  
       
-      {cards.map((card, index) => <Cards numeroPergunta = {index+1} key={index}/>)}
-      
-      <Contador/>
-      
-
+      {cards.map((card, index) => <Cards 
+      card = {card} numeroPergunta = {index+1} key={index}/>)}
+    
       </Container>
   );
 }
@@ -39,11 +36,11 @@ display: flex;
 flex-direction: column;
 align-items: center;
 background-color: #FB6B6B;
-width: 375px;
+width: 450px;
 height: 667px;
+overflow : auto;
 
 `;
-
 
 const Titulo=styled.div `
 
@@ -52,6 +49,7 @@ const Titulo=styled.div `
   height: 100px;
   align-items: center;
   justify-content: center;
+  margin-top: 26px;
   
   h1{ 
 
