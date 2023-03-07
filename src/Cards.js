@@ -14,6 +14,10 @@ const [mostrarResposta, setMostrarResposta] = useState(false)
 const [respondido, setRespondido] = useState(true)
 let contabilizar = 0;
 
+// const amarelo =  }
+// const vermelho = #FF3030
+// const verde = #2FBE34
+
 function perguntar(){
 
 if(respondido){
@@ -58,10 +62,10 @@ return (
     <h1>{props.card.answer}</h1>
     <Botoes>
 
-    <button className="vermelho" onClick={fim}> Não lembrei </button>
-    <button className="amarelo" onClick={fim}> Quase não lembrei </button>
-    <button className="azul" onClick={fim}> Zap! </button>
-
+    <Botao1 onClick={fim}> Não lembrei </Botao1>
+    <Botao2 onClick={fim}> Quase não lembrei </Botao2>
+    <Botao3 onClick={fim}> Zap! </Botao3>
+    
     </Botoes>  
     </Question>) 
      }
@@ -173,7 +177,18 @@ margin-bottom: 8px;
 
 
 button {
-  width: 247.83px;
+   
+  }
+
+
+}
+
+
+`
+
+
+const Botao1 = styled.button `
+width: 247.83px;
   width: 65.04px;
   height: 37.17px;
   height: 44px;
@@ -186,25 +201,43 @@ button {
   color: white;
   width: 86px;
   font-size: 12px;
+  background-color:#FF3030; 
 
-  .button:active {
+`
 
-    .vermelho {
-      background: red;
-    }
-    .amarelo {
-      background: yellow;
+const Botao2 = styled.button `
+width: 247.83px;
+  width: 65.04px;
+  height: 37.17px;
+  height: 44px;
+  border-radius: 5px;
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  width: 86px;
+  font-size: 12px;
+  background-color:#FF922E; 
 
-    }
-    .azul {
-      background: blue;
-    }
-  
-  }
+`
 
+const Botao3 = styled.button `
 
-}
-
-
+width: 247.83px;
+  width: 65.04px;
+  height: 37.17px;
+  height: 44px;
+  border-radius: 5px;
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  width: 86px;
+  font-size: 12px;
+  background-color:#2FBE34; 
 `
 
