@@ -1,6 +1,8 @@
 import logo from "./assets/logo.png"
 import styled from 'styled-components';
 import Cards from "./Cards.js"
+import React, {useState } from "react";
+
 // import cards from "./Cards.js"
 
 const cards = [
@@ -17,6 +19,12 @@ const cards = [
 export default function App() {
 
   let total = cards.length;
+  const [cont, setCont] = useState(0)
+
+  function contar()
+  {
+    setCont(cont+1)
+  }
 
   return (
     <Container>
@@ -25,7 +33,7 @@ export default function App() {
       <h1> ZappRecall</h1>
       </Titulo>  
       
-      {cards.map((card, index) => <Cards 
+      {cards.map((card, index) => <Cards setCont = {setCont} contPergunta = {cont} contar = {contar}
       total = {total} card = {card} numeroPergunta = {index+1} key={index}/>)}
     
       </Container>

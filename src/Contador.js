@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import React, { useState } from "react";
+ 
 
-
-export default function Contador(props){
+export default function Contador(props, contPergunta){
 
 
 return (
 
 <Footer data-test="footer">
     
-    <h1> {props.cont}/{props.totalPerguntas} Conclúidas</h1> 
+    <h1> {props.contPergunta}/{props.totalPerguntas} Conclúidas</h1> 
+
 </Footer>
  
 )

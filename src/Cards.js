@@ -1,24 +1,26 @@
 import styled from 'styled-components';
 import seta_play from "./assets/seta_play.png"
 import seta_virar from "./assets/seta_virar.png"
-import React, { useState } from "react";
+import React, {useState } from "react";
 import Contador from "./Contador.js"
-import contar from "./Contador.js"
-
+ 
+let contabilizar = 0;
 
 export default function Cards(props) {
 
-// let contabilizar = 0;
 const [inicio, setInicio] = useState(false)
 const [pergunta, setPergunta] = useState(false)
 const [respondido, setRespondido] = useState(true)
-const totalPerguntas = props.total;
-const [cont, setCont] = useState(0)
-let cor = "";
-const vermelho = "#FF3030";
-const verde = "#2FBE34"
-const laranja = "#FF922E"
+ const totalPerguntas = props.total;
+// let newCont = cont;
+// // let cor = "";
+// const vermelho = "#FF3030";
+// const verde = "#2FBE34"
+// const laranja = "#FF922E"
+ 
 
+
+ 
 function perguntar(){
 
 if(respondido){
@@ -33,21 +35,18 @@ setPergunta(true)
 
 }
 
-function fim(cor){
-
-setInicio(false)
-// contabilizar = contabilizar + 1;
-let newCont = cont + 1
-setCont(newCont)
-console.log(newCont)
-setRespondido(false)
-console.log(cor)
+function fim() {
  
-}
+  setInicio(false)
+  setRespondido(false)
+  contabilizar = contabilizar + 1;
+  props.contar()
+ }
+
+
+ 
 
 return (
-
-
 <>
 <Deck>
 
@@ -64,9 +63,9 @@ return (
     <h1 data-test="flashcard-text">{props.card.answer}</h1>
     <Botoes>
 
-    <Botao1 cor = {vermelho} onClick={() => fim(cor)}> Não lembrei </Botao1>
-    <Botao2 cor = {laranja} onClick={() => fim(cor)}> Quase não lembrei </Botao2>
-    <Botao3 cor = {verde} id="botaoVerde" onClick={() => fim(cor)}> Zap! </Botao3>
+    <Botao1   onClick={fim}> Não lembrei </Botao1>
+    <Botao2   onClick={fim}> Quase não lembrei </Botao2>
+    <Botao3   onClick={fim}> Zap! </Botao3>
     
     </Botoes>  
     </Question>) 
@@ -74,7 +73,7 @@ return (
 
 </Deck>
 
-<Contador setCont = {setCont} cont = {cont} totalPerguntas = {totalPerguntas}  />
+<Contador setCont = {props.setCont} contPergunta = {props.contPergunta} totalPerguntas = {totalPerguntas}  />
  </>
 
 );
@@ -218,7 +217,7 @@ width: 247.83px;
 
 const Botao3 = styled.button `
 
-width: 247.83px;
+  width: 247.83px;
   width: 65.04px;
   height: 37.17px;
   height: 44px;
